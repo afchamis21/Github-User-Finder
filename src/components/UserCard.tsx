@@ -49,10 +49,10 @@ export function UserCard({ userInfo }: UserCardProps) {
         <p>{userInfo.bio}</p>
         <UserInfoFooter>
           <span>
-            <Users weight="fill" size={16} /> {userInfo.followers}
+            <Users weight="fill" size={16} /> {userInfo.followers} followers
           </span>
           <span>
-            <Users size={16} /> {userInfo.following}
+            <Users size={16} /> following {userInfo.following}
           </span>
           <span>
             <Buildings size={16} weight="fill" />{' '}

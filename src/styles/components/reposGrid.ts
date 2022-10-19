@@ -4,8 +4,13 @@ export const ReposGridContainer = styled('div', {
   display: 'grid',
   maxWidth: '54rem',
   width: '100%',
-  gridTemplateColumns: 'calc(50% - 1rem) calc(50% - 1rem)',
+  gridTemplateColumns: '100%',
+
   gridGap: '2rem',
+
+  '@media (min-width: 768px)': {
+    gridTemplateColumns: 'calc(50% - 1rem) calc(50% - 1rem)',
+  },
 })
 
 export const SearchReposInput = styled('input', {

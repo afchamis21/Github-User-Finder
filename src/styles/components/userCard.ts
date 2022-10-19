@@ -8,9 +8,19 @@ export const UserCardContainer = styled('div', {
   padding: '2rem 2.5rem',
   display: 'flex',
   gap: '2rem',
+
+  flexDirection: 'column',
+  textAlign: 'justify',
+  justifyContent: 'space-between',
+  
+  '@media (min-width: 768px)': {
+    flexDirection: 'row',
+  },
 })
 
 export const ImageContainer = styled('div', {
+  width: '9.25rem',
+  height: '9.25rem',
   borderRadius: 6,
   overflow: 'hidden',
   flexShrink: 0,
@@ -33,7 +43,7 @@ export const UserInfoHeader = styled('header', {
 
 export const UserInfoLinks = styled('div', {
   display: 'flex',
-  gap: '2rem',
+  gap: '1rem',
   flexWrap: 'wrap',
 
   a: {
@@ -60,6 +70,7 @@ export const UserInfoLinks = styled('div', {
 export const UserInfoFooter = styled('footer', {
   display: 'flex',
   gap: '2rem',
+  flexWrap: 'wrap',
   span: {
     display: 'flex',
     alignItems: 'center',
