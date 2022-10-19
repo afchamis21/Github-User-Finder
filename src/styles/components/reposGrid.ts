@@ -73,4 +73,9 @@ export const RepoCardFooter = styled('div', {
   display: 'flex',
   alignItems: 'baseline',
   justifyContent: 'space-between',
+  span: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+  },
 })
