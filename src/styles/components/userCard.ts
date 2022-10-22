@@ -12,7 +12,7 @@ export const UserCardContainer = styled('div', {
   flexDirection: 'column',
   textAlign: 'justify',
   justifyContent: 'space-between',
-  
+
   '@media (min-width: 768px)': {
     flexDirection: 'row',
   },

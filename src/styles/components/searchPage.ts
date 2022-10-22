@@ -35,3 +35,21 @@ export const SearchPageHeader = styled('header', {
     },
   },
 })
+
+export const UserNotFoundMessageContainer = styled('div', {
+  maxWidth: '54rem',
+  width: '100%',
+  background: '$blue700',
+  borderRadius: 8,
+  padding: '2rem 2.5rem',
+  display: 'flex',
+  fontSize: '$lg',
+
+  textAlign: 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  strong: {
+    color: '$yellow500',
+  },
+})

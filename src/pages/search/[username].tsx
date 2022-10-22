@@ -2,9 +2,7 @@
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { GithubLogo, CaretLeft } from 'phosphor-react'
-import { useEffect } from 'react'
 import { ReposGrid } from '../../components/ReposGrid'
 import { SearchForm } from '../../components/SearchForm'
 import { UserCard } from '../../components/UserCard'
@@ -12,6 +10,7 @@ import { api } from '../../libs/axios'
 import {
   SearchPageContainer,
   SearchPageHeader,
+  UserNotFoundMessageContainer,
 } from '../../styles/components/searchPage'
 import { formatHomepageLink } from '../../utils/formatHomepageLink'
 
@@ -42,21 +41,15 @@ interface UserProps {
   username: string
   userInfo: UserInfo
   repos: Repo[]
-  shouldRedirect?: boolean
+  userNotFound?: boolean
 }
 
 export default function User({
   username,
   userInfo,
   repos,
-  shouldRedirect,
+  userNotFound,
 }: UserProps) {
-  const router = useRouter()
-  useEffect(() => {
-    if (shouldRedirect) {
-      router.push('/404')
-    }
-  }, [])
   return (
     <>
       <Head>
@@ -72,8 +65,19 @@ export default function User({
       </SearchPageHeader>
       <SearchPageContainer>
         <SearchForm />
-        <UserCard userInfo={userInfo} username={username} />
-        <ReposGrid repos={repos} />
+        {userNotFound ? (
+          <UserNotFoundMessageContainer>
+            <p>
+              The user <strong>{username}</strong> was not found, verify the
+              username was typed correctly and try again
+            </p>
+          </UserNotFoundMessageContainer>
+        ) : (
+          <>
+            <UserCard userInfo={userInfo} username={username} />
+            <ReposGrid repos={repos} />
+          </>
+        )}
       </SearchPageContainer>
     </>
   )
@@ -136,7 +140,8 @@ export const getServerSideProps: GetServerSideProps<
   } catch (error) {
     return {
       props: {
-        shouldRedirect: true,
+        username,
+        userNotFound: true,
       },
     }
   }
