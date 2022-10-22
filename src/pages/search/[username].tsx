@@ -68,8 +68,8 @@ export default function User({
         {userNotFound ? (
           <UserNotFoundMessageContainer>
             <p>
-              The user <strong>{username}</strong> was not found, verify the
-              username was typed correctly and try again
+              The user <strong>{username}</strong> was not found. Check if the
+              username was entered correctly and try again
             </p>
           </UserNotFoundMessageContainer>
         ) : (
